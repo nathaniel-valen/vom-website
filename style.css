@@ -1,0 +1,12 @@
+@media (max-width: 640px) {
+    /* Penyesuaian tata letak atau gaya untuk layar handphone */
+    .hero-content {
+        flex-direction: column; /* Mengubah arah flex menjadi vertikal */
+        text-align: center; /* Mengatur teks menjadi di tengah pada layar handphone */
+    }
+
+    .hero-content img {
+        margin-top: 100px; /* Memberikan margin bawah pada gambar */
+        margin-right: 0; /* Menghapus margin kanan pada gambar */
+    }
+}
