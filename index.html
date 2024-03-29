@@ -8,27 +8,92 @@
 
     <!-- CDN Daisyui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- CSS External -->
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
 
     <!-- Navbar -->
-    <div class="navbar bg-base-300 fixed top-0 z-50 p-3">
+    <!-- <div class="navbar bg-base-300 fixed top-0 z-50 p-3">
         <div class="flex-1 ml-3 mb-2">
             <a href="index.html"><img src="assets/img/logo.png" alt="Logo VOM" height="50px" width="80px"></a>
         </div>
-        <div class="flex-none">
+        <div class="flex-none block lg:hidden">
+            <button id="menu-toggle" class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="menu" class="hidden lg:flex lg:items-center">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="#about-us">About Us</a></li>
                 <li><a href="#divisi">Divisi</a></li>
                 <li><a href="#contact-us">Contact Us</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
+
+    <nav class="bg-base-300 fixed top-0 w-full z-50" x-data="{ open: false }">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button @click="open = !open" type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-base-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg x-show="!open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg x-show="open" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex flex-shrink-0 items-center">
+                        <img class="h-8 w-auto"
+                            src="assets/img/logo.png" alt="Logo VOM">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="#about-us"
+                                class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
+                            <a href="#divisi"
+                                class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Divisi</a>
+                            <a href="contact-us"
+                                class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div class="sm:hidden" id="mobile-menu" x-show="open">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <!-- Current: "bg-base-900 text-white", Default: "text-base-300 hover:bg-base-700 hover:text-white" -->
+                <a href="#about-us"
+                    class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About Us</a>
+                <a href="#divisi"
+                    class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Divisi</a>
+                <a href="contact-us"
+                    class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
 
     <!-- About Us -->
     <section id="about-us">
@@ -61,40 +126,40 @@
         <h1 class="text-center text-4xl font-bold">Divisi</h1>
         <div class="container mx-auto flex justify-center p-10">
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow">
+                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow rounded-xl">
                     <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
+                        <img src="assets/img/band.png" alt="Shoes"
                             class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Band</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>Klik selengkapnya untuk tau lebih lanjut tentang Band!</p>
                         <div class="card-actions">
                             <a class="btn btn-primary" href="band.html">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow">
+                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow rounded-xl">
                     <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
+                        <img src="assets/img/choir.png" alt="Shoes"
                             class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Choir</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>Klik selengkapnya untuk tau lebih lanjut tentang Choir!</p>
                         <div class="card-actions">
                             <a class="btn btn-primary" href="choir.html">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
-                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow">
+                <div class="card w-full md:w-1/2 lg:w-3/5 bg-base-100 shadow-xl mx-auto flex-grow rounded-xl">
                     <figure class="px-10 pt-10">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
+                        <img src="assets/img/dancer.png" alt="Shoes"
                             class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Dancer</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <p>Klik selengkapnya untuk tau lebih lanjut tentang Dancer!</p>
                         <div class="card-actions">
                             <a class="btn btn-primary" href="dancer.html">Selengkapnya</a>
                         </div>
@@ -137,6 +202,8 @@
     </footer>
     <!-- CDN Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
 
 </body>
 
