@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
     <!-- CDN Daisyui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.9.0/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -17,27 +19,6 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <!-- <div class="navbar bg-base-300 fixed top-0 z-50 p-3">
-        <div class="flex-1 ml-3 mb-2">
-            <a href="index.html"><img src="assets/img/logo.png" alt="Logo VOM" height="50px" width="80px"></a>
-        </div>
-        <div class="flex-none block lg:hidden">
-            <button id="menu-toggle" class="btn btn-square btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-        <div id="menu" class="hidden lg:flex lg:items-center">
-            <ul class="menu menu-horizontal px-1">
-                <li><a href="#about-us">About Us</a></li>
-                <li><a href="#divisi">Divisi</a></li>
-                <li><a href="#contact-us">Contact Us</a></li>
-            </ul>
-        </div>
-    </div> -->
 
     <nav class="bg-base-300 fixed top-0 w-full z-50" x-data="{ open: false }">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -72,7 +53,9 @@
                                 class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
                             <a href="#divisi"
                                 class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Divisi</a>
-                            <a href="contact-us"
+                            <a href="#gallery"
+                                class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Galery</a>
+                            <a href="#contact-us"
                                 class="text-base-500 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact Us</a>
                         </div>
                     </div>
@@ -88,6 +71,8 @@
                     class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">About Us</a>
                 <a href="#divisi"
                     class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Divisi</a>
+                <a href="#gallery"
+                    class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Galery</a>
                 <a href="contact-us"
                     class="text-base-500 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact Us</a>
             </div>
@@ -96,8 +81,8 @@
 
 
     <!-- About Us -->
-    <section id="about-us">
-        <div class="hero min-h-screen bg-base-200 mb-10">
+    <section id="about-us" class="mb-20">
+        <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row items-center">
                 <img src="assets/img/logo.png" class="mx-auto mb-8 lg:mb-0 lg:mr-8 max-w-full h-auto" />
                 <div>
@@ -122,7 +107,7 @@
     
 
     <!-- Divisi -->
-    <section id="divisi">
+    <section id="divisi" class="mb-20">
         <h1 class="text-center text-4xl font-bold">Divisi</h1>
         <div class="container mx-auto flex justify-center p-10">
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -135,7 +120,7 @@
                         <h2 class="card-title">Band</h2>
                         <p>Klik selengkapnya untuk tau lebih lanjut tentang Band!</p>
                         <div class="card-actions">
-                            <a class="btn btn-primary" href="band.html">Selengkapnya</a>
+                            <a class="btn btn-primary bg-blue-500 text-white px-3 py-2 rounded-lg text-base hover:bg-blue-600" href="band.html">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +133,7 @@
                         <h2 class="card-title">Choir</h2>
                         <p>Klik selengkapnya untuk tau lebih lanjut tentang Choir!</p>
                         <div class="card-actions">
-                            <a class="btn btn-primary" href="choir.html">Selengkapnya</a>
+                            <a class="btn btn-primary bg-blue-500 text-white px-3 py-2 rounded-lg text-base hover:bg-blue-600" href="choir.html">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -161,13 +146,65 @@
                         <h2 class="card-title">Dancer</h2>
                         <p>Klik selengkapnya untuk tau lebih lanjut tentang Dancer!</p>
                         <div class="card-actions">
-                            <a class="btn btn-primary" href="dancer.html">Selengkapnya</a>
+                            <a class="btn btn-primary bg-blue-500 text-white px-3 py-2 rounded-lg text-base hover:bg-blue-600" href="dancer.html">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <section id="gallery">
+        <h1 class="text-center text-4xl font-bold">Galery</h1>
+        <div class="container mx-auto p-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="p-4">
+                        <img src="assets/img/band.png" alt="Image 1" class="rounded-lg shadow-xl img-zoom">
+                    </div>
+                    <div class="p-4">
+                        <img src="assets/img/choir.png" alt="Image 2" class="rounded-lg shadow-xl img-zoom">
+                    </div>
+                    <div class="p-4">
+                        <img src="assets/img/dancer.png" alt="Image 2" class="rounded-lg shadow-xl img-zoom">
+                    </div>
+                    <div class="p-4">
+                        <img src="assets/img/logo.png" alt="Image 2" class="rounded-lg shadow-xl img-zoom">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us">
+        <h1 class="text-center text-4xl font-bold">Contact Us</h1>
+        <div class="container mx-auto p-24">
+            <div class="flex flex-wrap">
+                <!-- Kolom untuk formulir input -->
+                <div class="w-full lg:w-full px-4 mb-4">
+                    <div class="p-6 bg-white rounded-md shadow-md">
+                        <h2 class="text-xl font-semibold mb-4">Contact Us</h2>
+                        <form id="myForm">
+                            <div class="mb-4">
+                              <label for="name" class="block text-gray-700">Name</label>
+                              <input type="text" id="name" name="name" class="form-input mt-1 block w-full rounded-md border-gray-300">
+                            </div>
+                            <div class="mb-4">
+                              <label for="email" class="block text-gray-700">Email</label>
+                              <input type="email" id="email" name="email" class="form-input mt-1 block w-full rounded-md border-gray-300">
+                            </div>
+                            <div class="mb-4">
+                              <label for="message" class="block text-gray-700">Message</label>
+                              <textarea id="message" name="message" rows="4" class="form-textarea mt-1 block w-full rounded-md border-gray-300"></textarea>
+                            </div>
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Submit</button>
+                          </form>                          
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+    
 
 
     <!-- Footer -->
@@ -179,24 +216,9 @@
         <nav>
             <h6 class="footer-title">Social</h6>
             <div class="grid grid-flow-col gap-4">
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                        </path>
-                    </svg></a>
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-                        </path>
-                    </svg></a>
-                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                        </path>
-                    </svg></a>
+                <a href="https://instagram.com/voiceofmaranatha"><i class="fa fa-lg fa-instagram" ></i></a>
+                <a href="https://wa.me/6281282322824"><i class="fa fa-lg fa-whatsapp"></i></a>
+                <a href="mailto:voiceofmaranatha@gmail.com"><i class="fa fa-lg fa-google"></i></a>
             </div>
         </nav>
     </footer>
@@ -204,6 +226,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+    <script src="./script.js"></script>
+    
 
 </body>
 
