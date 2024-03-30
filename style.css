@@ -10,3 +10,9 @@
         margin-right: 0; /* Menghapus margin kanan pada gambar */
     }
 }
+
+/* Efek zoom saat hover */
+.img-zoom:hover {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1);
+}
